@@ -54,27 +54,38 @@ def print_base_rank_visual(filedirectory, filename, filewrite):
 
 def time_for_completion(filedirectory, filename):
     jsonFile = read_file_json(filedirectory, filename)
-    time = jsonFile.get('Time', {}).get('Total', 'Time field not found')
-    print(f"Time: {time}")
-    return time
+ 
+    return jsonFile
 
 def read_file_json(filedirectory, filename):
     file_path = os.path.join(filedirectory, filename)
-    with open(file_path, "r", encoding='utf-8') as f:
-        jsonFile = json.load(f)
-        return jsonFile
+    
+    # Check if the file is empty
+    if os.stat(file_path).st_size == 0:
+        raise ValueError(f"The file {filename} is empty and cannot be parsed as JSON.")
+    
+    with open(file_path, "r") as f:
+        file_content = f.read()
+        return file_content[file_content.find("Total")+ 8:file_content.find("Total")+13]
+        # try:
+        #     jsonFile = json.loads(file_content)
+        #     print(jsonFile)
+        #     return jsonFile
+        # except json.JSONDecodeError as e:
+        #     raise ValueError(f"Error parsing JSON in file {filename}: {str(e)}")
+
 
 
 
 def compute_time_base_rank(filedir, filename):
     statements = filename[filename.find("s")+3:filename.find("-")]
-    ranks = filename[filename.find("-")+1:filename.find("u")-1]
+    ranks = filename[filename.find("-")+1:filename.find("i")-2]
     print(statements, ranks)
     time = time_for_completion(filedir, filename)
-    with open("knowledge-gen-uniform-time-250.csv", "a+", encoding='utf-8') as file:
+    with open("knowledge-gen-linear-time.csv", "a+", encoding='utf-8') as file:
          file.writelines(f"{statements}, {ranks}, {time}\n")
 def main():
-    input_directory = "results_knowledge_base_uniform"
+    input_directory = "results_knowledge_base_linear"
     files = os.listdir(input_directory)
     files.sort()
     for filename in files:
