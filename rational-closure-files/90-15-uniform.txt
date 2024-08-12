@@ -1,0 +1,39 @@
+{
+  "Solver": "clingo version 5.7.1",
+  "Input": [
+    "knowledge-base-instances.lp","knowledge_base_problem_class_2.lp","functions.lp","base-rank.lp"
+  ],
+  "Call": [
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "rank(m_implication(a(1),a(0)),1)", "rank(m_implication(a(2),a(1)),2)", "rank(m_implication(a(3),a(2)),3)", "rank(m_implication(a(4),a(3)),4)", "rank(m_implication(a(5),a(4)),5)", "rank(m_implication(a(6),a(5)),6)", "rank(m_implication(a(7),a(6)),7)", "rank(m_implication(a(8),a(7)),8)", "rank(m_implication(a(9),a(8)),9)", "rank(m_implication(a(10),a(9)),10)", "rank(m_implication(a(11),a(10)),11)", "rank(m_implication(a(12),a(11)),12)", "rank(m_implication(a(13),a(12)),13)", "rank(m_implication(a(14),a(13)),14)", "rank(m_implication(a(1),a(38)),1)", "rank(m_implication(a(1),a(44)),1)", "rank(m_implication(a(1),a(59)),1)", "rank(m_implication(a(1),a(60)),1)", "rank(m_implication(a(2),a(33)),2)", "rank(m_implication(a(2),a(37)),2)", "rank(m_implication(a(2),a(87)),2)", "rank(m_implication(a(2),a(89)),2)", "rank(m_implication(a(3),a(45)),3)", "rank(m_implication(a(3),a(46)),3)", "rank(m_implication(a(3),a(52)),3)", "rank(m_implication(a(3),a(79)),3)", "rank(m_implication(a(4),a(28)),4)", "rank(m_implication(a(4),a(32)),4)", "rank(m_implication(a(4),a(40)),4)", "rank(m_implication(a(4),a(44)),4)", "rank(m_implication(a(5),a(15)),5)", "rank(m_implication(a(5),a(19)),5)", "rank(m_implication(a(5),a(26)),5)", "rank(m_implication(a(5),a(31)),5)", "rank(m_implication(a(6),a(30)),6)", "rank(m_implication(a(6),a(33)),6)", "rank(m_implication(a(6),a(57)),6)", "rank(m_implication(a(6),a(59)),6)", "rank(m_implication(a(7),a(21)),7)", "rank(m_implication(a(7),a(49)),7)", "rank(m_implication(a(7),a(53)),7)", "rank(m_implication(a(7),a(67)),7)", "rank(m_implication(a(8),a(22)),8)", "rank(m_implication(a(8),a(27)),8)", "rank(m_implication(a(8),a(30)),8)", "rank(m_implication(a(8),a(46)),8)", "rank(m_implication(a(9),a(85)),9)", "rank(m_implication(a(9),a(86)),9)", "rank(m_implication(a(9),a(88)),9)", "rank(m_implication(a(9),a(89)),9)", "rank(m_implication(a(10),a(34)),10)", "rank(m_implication(a(10),a(39)),10)", "rank(m_implication(a(10),a(53)),10)", "rank(m_implication(a(10),a(69)),10)", "rank(m_implication(a(11),a(25)),11)", "rank(m_implication(a(11),a(33)),11)", "rank(m_implication(a(11),a(84)),11)", "rank(m_implication(a(11),a(89)),11)", "rank(m_implication(a(12),a(49)),12)", "rank(m_implication(a(12),a(62)),12)", "rank(m_implication(a(12),a(71)),12)", "rank(m_implication(a(12),a(83)),12)", "rank(m_implication(a(13),a(28)),13)", "rank(m_implication(a(13),a(34)),13)", "rank(m_implication(a(13),a(69)),13)", "rank(m_implication(a(13),a(87)),13)", "rank(m_implication(a(14),a(35)),14)", "rank(m_implication(a(14),a(57)),14)", "rank(m_implication(a(14),a(72)),14)", "rank(m_implication(a(14),a(80)),14)", "rank(m_implication(a(0),a(85)),0)", "rank(m_implication(a(0),a(86)),0)", "rank(m_implication(a(0),a(87)),0)", "rank(m_implication(a(0),a(88)),0)", "rank(m_implication(a(0),a(89)),0)", "rank(m_implication(a(1),l0),1)", "rank(m_implication(a(2),-l0),2)", "rank(m_implication(a(3),l0),3)", "rank(m_implication(a(4),-l0),4)", "rank(m_implication(a(5),l0),5)", "rank(m_implication(a(6),-l0),6)", "rank(m_implication(a(7),l0),7)", "rank(m_implication(a(8),-l0),8)", "rank(m_implication(a(9),l0),9)", "rank(m_implication(a(10),-l0),10)", "rank(m_implication(a(11),l0),11)", "rank(m_implication(a(12),-l0),12)", "rank(m_implication(a(13),l0),13)", "rank(m_implication(a(14),-l0),14)", "rank(m_implication(a(0),-l0),0)"
+          ],
+          "Costs": [
+            630
+          ]
+        }
+      ]
+    }
+  ],
+  "Result": "SATISFIABLE",
+  "INTERRUPTED": 1,
+  "Models": {
+    "Number": 1,
+    "More": "yes",
+    "Optimum": "unknown",
+    "Optimal": 0,
+    "Costs": [
+      630
+    ]
+  },
+  "Calls": 1,
+  "Time": {
+    "Total": 362.781,
+    "Solve": 316.584,
+    "Model": 0.384,
+    "Unsat": 0.000,
+    "CPU": 352.869
+  }
+}
