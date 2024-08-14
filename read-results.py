@@ -62,30 +62,40 @@ def read_file_json(filedirectory, filename):
     
     # Check if the file is empty
     if os.stat(file_path).st_size == 0:
-        raise ValueError(f"The file {filename} is empty and cannot be parsed as JSON.")
+        return
     
     with open(file_path, "r") as f:
         file_content = f.read()
-        return file_content[file_content.find("Total")+ 8:file_content.find("Total")+13]
-        # try:
-        #     jsonFile = json.loads(file_content)
-        #     print(jsonFile)
-        #     return jsonFile
-        # except json.JSONDecodeError as e:
-        #     raise ValueError(f"Error parsing JSON in file {filename}: {str(e)}")
+        # return file_content[file_content.find("Total")+ 8:file_content.find("Total")+13]
+        try:
+            jsonFile = json.loads(file_content)
+            return jsonFile
+        except json.JSONDecodeError as e:
+            raise ValueError(f"Error parsing JSON in file {filename}: {str(e)}")
 
 
 
 
 def compute_time_base_rank(filedir, filename):
     statements = filename[filename.find("s")+3:filename.find("-")]
-    ranks = filename[filename.find("-")+1:filename.find("i")-2]
-    print(statements, ranks)
+    slice= filename[filename.find("_"):]
+    slice = slice[slice.find("_"):]
+    slice = slice[slice.find("-")+1:]
+    ranks = slice[:slice.find("_")]
+    print(ranks)
     time = time_for_completion(filedir, filename)
-    with open("knowledge-gen-linear-time.csv", "a+", encoding='utf-8') as file:
+    if(time == None):
+        return
+    time = time['Time']['Total']
+    filewrite = ""
+    if(filename.find("jumpy") != -1):
+        filewrite = "knowledge-gen-random-time-jumpy.csv"
+    else:
+        filewrite = "knowledge-gen-random-time-tweety.csv"
+    with open(filewrite, "a+", encoding='utf-8') as file:
          file.writelines(f"{statements}, {ranks}, {time}\n")
 def main():
-    input_directory = "results_knowledge_base_linear"
+    input_directory = "results_knowledge_base_random_c"
     files = os.listdir(input_directory)
     files.sort()
     for filename in files:
