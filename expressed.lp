@@ -4,7 +4,6 @@ clashed_init(Y,-L) :- clash(X,Y), clashed_init(X,L).
 defeasible(X,Y) :- clash(X,Y).
 defeasible(X,Y) :- clashed_init(X,Y).
 {defeasible(X,Y)} :- atom(X), atom(Y), not clash(X,Y), clashed_atom(X), not clashed_atom(Y), amount_of_ranks -1 > 0.
-
 m_implication(X,Y) :- defeasible(X,Y), not encoded(X,Y).
 m_implication(X,Y) :- classical(X,Y), not encoded(X,Y). 
 :-#count{(X,Y):m_implication(X,Y)} < amount_of_statements.

@@ -6,16 +6,10 @@ defeasible(X,Y) :- clash(X,Y), not classical_included.
 {defeasible(X,Y)} :- atom(X), atom(Y), amount_of_ranks -1  == 0. 
 classical(X,Y) :- clash(X,Y), classical_included.
 
-% %*Encoded defeasible statements for purposes of testing the efficency of RC*%
-{encoded(X,Y)} :- atom(X), atom(Y), not clash(X,Y), clashed_atom(X), not clashed_atom(Y), amount_of_ranks -1 > 0, encoded.
-encoded(X,Y) :- encoded(Y,X).
-:- #count{Y : encoded(X,Y)} > amount_of_encoded_statements, encoded. 
-:- #count{Y : encoded(X,Y)} < 1, encoded.
-defeasible(X,Y) :- encoded(X,Y). 
 
 % %*Ensuring that the rank count is within a specified section*%
-m_implication(X,Y) :- defeasible(X,Y), not encoded(X,Y).
-m_implication(X,Y) :- classical(X,Y), not encoded(X,Y). 
+m_implication(X,Y) :- defeasible(X,Y).
+m_implication(X,Y) :- classical(X,Y). 
 :-#count{(X,Y):m_implication(X,Y)} < amount_of_statements.
 :-#count{(X,Y):m_implication(X,Y)} > amount_of_statements.
 
