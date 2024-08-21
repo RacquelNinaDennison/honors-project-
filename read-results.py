@@ -89,9 +89,11 @@ def compute_time_base_rank(filedir, filename):
     time = time['Time']['Total']
     filewrite = ""
     if(filename.find("jumpy") != -1):
-        filewrite = "knowledge-gen-random-time-jumpy.csv"
+        filewrite = "knowledge-gen-random-time-jumpy-2.csv"
+    elif (filename.find("tweety") != -1):
+        filewrite = "knowledge-gen-random-time-tweety-2.csv"
     else:
-        filewrite = "knowledge-gen-random-time-tweety.csv"
+        filewrite = "knowledge-gen-random-time-2.csv"
     with open(filewrite, "a+", encoding='utf-8') as file:
          file.writelines(f"{statements}, {ranks}, {time}\n")
 def main():
