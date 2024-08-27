@@ -1,14 +1,19 @@
 {defeasible(X,L;X,-L):clash_literal(L)}= 1 :- clashed_atom(X).
 :- clash(X,Y), defeasible(X,L1), defeasible(Y,L2), L1=L2. 
 defeasible(X,Y) :- clash(X,Y), not classical_included.
+classical(X,Y) :- clash(X,Y), classical_included. 
 {defeasible(X,Y) : atom(Y), not clashed_atom(Y)} :- clashed_atom(X).
 {defeasible(X,Y)} :- atom(X), atom(Y), amount_of_ranks -1  == 0. 
 m_implication(X,Y) :- defeasible(X,Y).
-:-#count{(X,Y):m_implication(X,Y)} < amount_of_statements.
-:-#count{(X,Y):m_implication(X,Y)} > amount_of_statements.
+m_implication(X,Y) :- classical(X,Y).
+:-#count{(X,Y):m_implication(X,Y)} < amount_of_statements, not amount_of_statements_changed.
+:-#count{(X,Y):m_implication(X,Y)} > amount_of_statements, not amount_of_statements_changed.
+
+:-#count{(X,Y):m_implication(X,Y)} < P, adjusted_statements(P),amount_of_statements_changed.
+:-#count{(X,Y):m_implication(X,Y)} > P, adjusted_statements(P), amount_of_statements_changed.
+
 atom_index(a(X), X) :- atom(a(X)).
 % set uniform 
-
 statement_count(N, Count) :- clashed_atom(X), atom_index(X,N), Count = #count{Y : m_implication(X,Y)}.
 
 % Only do this if things are uniform 
@@ -39,3 +44,4 @@ statement_count(N, Count) :- clashed_atom(X), atom_index(X,N), Count = #count{Y 
 % Initialize random distribution with desired parameters
 :- statement_count(N, Count), Count < @random_index(amount_of_statements, amount_of_ranks,N), random, amount_of_ranks - 1 != 0.
 :- statement_count(N, Count), Count > @random_index(amount_of_statements, amount_of_ranks,N), random, amount_of_ranks - 1 != 0.
+
