@@ -1,18 +1,42 @@
-from rankgen import RankGenerator
-import sys
+import os
+import json
+from convert import ConvertToFormat
+
+def write_to_file(output_directory, filename, ranked_implications):
+    output_path = os.path.join(output_directory, filename)
+    with open(output_path, "a+") as f:
+          sorted_keys = sorted(ranked_implications.keys(), key=lambda x: (x != '∞', -int(x) if x != '∞' else float('inf')))
+          for rank in sorted_keys:
+                implications = ", ".join(f"({imp})" for imp in ranked_implications[rank])
+                f.write(f"{rank} :\t{{ {implications} }}\n") 
+
+def extract_models(input_directory, filename):
+    with open(os.path.join(input_directory, filename), 'r') as file:
+        json_data = json.load(file)
+        return json_data['Call'][0]['Witnesses'][0]['Value']
 
 
+def write_models(input_dir, output_dir):
+    files = os.listdir(input_dir)
+    files.sort()
+    
+    for filename in files:
+        if filename.startswith('.') or filename.startswith('S_'):
+            print(f"Skipping system or hidden file: {filename}")
+            continue
+        
+        output_file = filename[:filename.find(".")] + "_formatted.txt"  
+        models = extract_models(input_dir, filename)
+        formatter = ConvertToFormat(models)
+        formatted = formatter.ranked_implications()
+        
+        write_to_file(output_dir, output_file, formatted)
 
-
-def main(filename,number_of_statements,number_of_ranks,classical_included, distribution):
-    if (number_of_statements < 2*number_of_ranks-1):
-        print("The number of statements limits the amound of ranks")
-        number_of_ranks = int(input("Enter the amount of ranks"))
-        number_of_statements = int(input("Enter the amount of statements"))
-    rankGen = RankGenerator(ranks= number_of_ranks,statements = number_of_statements, filename=filename, classical_included=classical_included, distribution=distribution)
-    rankGen.generate_ranks()
-    rankGen.write_to_file()
-
+def main():
+    input_directory = "output-testing-files"
+    output_directory = "formatted_testing_files_ranks"
+    os.makedirs(output_directory, exist_ok=True)
+    write_models(input_directory, output_directory)
 
 if __name__ == "__main__":
-    main(filename = sys.argv[1], number_of_statements=int(sys.argv[2]), number_of_ranks=int(sys.argv[3]), classical_included = sys.argv[4], distribution= sys.argv[5])
+    main()

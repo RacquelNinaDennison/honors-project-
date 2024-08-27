@@ -1,0 +1,38 @@
+{
+  "Solver": "clingo version 5.7.1",
+  "Input": [
+    "testing-files/random-literals.lp","base-rank.lp"
+  ],
+  "Call": [
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "rank(m_implication(a0,a1),1)", "rank(m_implication(a1,a2),0)", "rank(m_implication(a2,a3),0)", "rank(m_implication(a4,a2),0)", "rank(m_implication(a5,a1),0)", "rank(m_implication(a6,a1),0)", "rank(m_implication(a1,l0),0)", "rank(m_implication(a0,-l0),1)"
+          ],
+          "Costs": [
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "Result": "OPTIMUM FOUND",
+  "Models": {
+    "Number": 22,
+    "More": "no",
+    "Optimum": "yes",
+    "Optimal": 1,
+    "Costs": [
+      2
+    ]
+  },
+  "Calls": 1,
+  "Time": {
+    "Total": 0.028,
+    "Solve": 0.005,
+    "Model": 0.001,
+    "Unsat": 0.000,
+    "CPU": 0.027
+  }
+}

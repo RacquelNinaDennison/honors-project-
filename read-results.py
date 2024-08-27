@@ -66,38 +66,32 @@ def read_file_json(filedirectory, filename):
     
     with open(file_path, "r") as f:
         file_content = f.read()
-        # return file_content[file_content.find("Total")+ 8:file_content.find("Total")+13]
-        try:
-            jsonFile = json.loads(file_content)
-            return jsonFile
-        except json.JSONDecodeError as e:
-            raise ValueError(f"Error parsing JSON in file {filename}: {str(e)}")
+        return file_content[file_content.find("Total")+ 8:file_content.find("Total")+13]
 
 
 
 
 def compute_time_base_rank(filedir, filename):
     statements = filename[filename.find("s")+3:filename.find("-")]
-    slice= filename[filename.find("_"):]
-    slice = slice[slice.find("_"):]
-    slice = slice[slice.find("-")+1:]
-    ranks = slice[:slice.find("_")]
+    ranks = filename[filename.find(statements):]
+    ranks = ranks[ranks.find("-")+1: ranks.find("_")-3]
     print(ranks)
+    print(statements)
     time = time_for_completion(filedir, filename)
     if(time == None):
         return
-    time = time['Time']['Total']
+    print(time) 
     filewrite = ""
     if(filename.find("jumpy") != -1):
-        filewrite = "knowledge-gen-random-time-jumpy-2.csv"
+        filewrite = "knowledge-gen-uniform-time-final.csv"
     elif (filename.find("tweety") != -1):
-        filewrite = "knowledge-gen-random-time-tweety-2.csv"
+        filewrite = "knowledge-gen-uniform-time-tweety-final.csv"
     else:
-        filewrite = "knowledge-gen-random-time-2.csv"
+        filewrite = "knowledge-gen-no-dis-time-final.csv"
     with open(filewrite, "a+", encoding='utf-8') as file:
          file.writelines(f"{statements}, {ranks}, {time}\n")
 def main():
-    input_directory = "results_knowledge_base_random_c"
+    input_directory = "results_knowledge_base_uniform_experiments_final_tweety"
     files = os.listdir(input_directory)
     files.sort()
     for filename in files:

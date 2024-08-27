@@ -1,0 +1,2 @@
+1 :	{ (leaky=>boat), (leaky=>!floats), (flyingDutchman=>boat), (flyingDutchman=>leaky) }
+0 :	{ (boat=>floats) }
