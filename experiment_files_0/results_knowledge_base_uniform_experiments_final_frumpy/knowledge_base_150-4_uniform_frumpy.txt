@@ -1,0 +1,25 @@
+{
+  "Solver": "clingo version 5.7.1",
+  "Input": [
+    "knowledge-base-instances.lp","knowledge_base_problem_class_2.lp","functions.lp"
+  ],
+  "Call": [
+    {
+
+    }
+  ],
+  "Result": "UNKNOWN",
+  "INTERRUPTED": 1,
+  "Models": {
+    "Number": 0,
+    "More": "yes"
+  },
+  "Calls": 1,
+  "Time": {
+    "Total": 441529.120,
+    "Solve": 441529.063,
+    "Model": 0.000,
+    "Unsat": 0.000,
+    "CPU": 216026.317
+  }
+}
