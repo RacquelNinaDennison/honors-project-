@@ -1,6 +1,6 @@
 #!/bin/bash
 
-main_directory="experiment_files_4"
+main_directory="experiment_files"
 mkdir -p "$main_directory"
 
 # Define and create the subdirectories under the main directory

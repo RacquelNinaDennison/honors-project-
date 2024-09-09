@@ -26,10 +26,11 @@ statement_count(N, Count) :- clashed_atom(X), atom_index(X,N), Count = #count{Y 
 :- statement_count(N, Count), Count < @linear_growth(amount_of_statements, amount_of_ranks,N), linear, amount_of_ranks -1 != 0.
 :- statement_count(N, Count), Count < @linear_decline(amount_of_statements, amount_of_ranks,N), linear_d, amount_of_ranks -1 != 0.
 :- statement_count(N, Count), Count < @linear_decline(amount_of_statements, amount_of_ranks,N), linear_d, amount_of_ranks -1 != 0.
+
 %* Random growth distribution*%
 % Initialize random distribution with desired parameters
 :- statement_count(N, Count), Count < @random_index(amount_of_statements, amount_of_ranks,N), random, amount_of_ranks - 1 != 0.
 :- statement_count(N, Count), Count > @random_index(amount_of_statements, amount_of_ranks,N), random, amount_of_ranks - 1 != 0.
 
-
+#show defeasible/2.
 

@@ -157,9 +157,6 @@ def print_distributions(path, dic, dis):
 def main():
     input_directory = ["experiment_files_1", "experiment_files_2", "experiment_files_3", "experiment_files_4"]
     results_dir = ["experiment_results_0", "experiment_results_1", "experiment_results_2", "experiment_results_3", "experiment_results_4"]
-    # Extract times if needed
-    # extract_time(input_directory)
-    
     for results in results_dir:
         files = os.listdir(results)
         files.sort()
