@@ -9,29 +9,6 @@ outlined in paper
 Furthermore, we developed a knowledge generator used
 generate data for RC.
 
-## Running the programs
-
-### Base Rank and Rational Closure
-
-To run Base Rank, given a knowledge base K, all statements
-need to be encoded as defeasible or classical facts. Example
-K = {penguins -> birds, birds |~ fly , penguins |~ -fly } is
-encoded as ASP facts:
-
-```asp
-defeasible(penguins,-fly).
-defeasible(birds,fly).
-classical(penguins,birds).
-```
-
-Running Base Rank on given set of facts in a file and output the generation to a file name:
-
-```bash
-     clingo <file-with-facts> base-rank.lp > "<output-file-name>"
-```
-
-
-###
 
 ### Installation
 
@@ -44,6 +21,39 @@ Running Base Rank on given set of facts in a file and output the generation to a
    requires Python to be installed. You can download and
    install Python from the official site
    [here](https://www.python.org/downloads/).
+
+
+## Running the programs
+
+### Base Rank and Rational Closure
+
+To run Base Rank, given a knowledge base K, all statements
+need to be encoded as defeasible or classical facts. A const should specify the number of statements within the knowledge base. Example
+K = {penguins -> birds, birds |~ fly , penguins |~ -fly } is
+encoded as ASP facts:
+
+```asp
+defeasible(penguins,-fly).
+defeasible(birds,fly).
+classical(penguins,birds).
+#const number_of_statements=3. 
+```
+
+Running Base Rank on given set of facts in a file and output the generation to a file name:
+
+```bash
+     clingo <file-with-knowledge-base-facts> base-rank.lp > <output-file-name>
+```
+To run Rational Closure, the query to be queried against a knowledge base should be encoded in a file such as:
+```asp
+query(penguins,fly).
+```
+To check for entailment for a given set of statements, run the following command:
+```bash
+     clingo <file-with-query> <file-with-knowledge-base-facts> base-rank.lp rational-closure.lp > <output-file-name>
+```
+### Knowledge base generator 
+
 
 ### References
 
