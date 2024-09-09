@@ -101,7 +101,7 @@ To set the external consts:
     -c linear=1 
 ```
 
-To run the knowledge base:
+To run the knowledge base (Setting each parameter is done as above):
 ```bash
         clingo --outf=2 --quiet=1 knowledge-base-instances.lp -c number_of_ranks=<given-amount> -c number_of_statements=<given-amount> -c uniform=1 knowledge_base_problem_class_2.lp "functions.lp" > <output-file>
 ```
