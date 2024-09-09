@@ -74,6 +74,37 @@ on the following parameters:
 The paramters above are set by external consts used by the
 clingo environment.
 
+To set the external consts: 
+- Number of statements 
+```bash
+    -c number_of_statement = <given-amount>
+```
+- Number of ranks
+```bash
+    -c number_of_ranks = <given-amount>
+```
+- Encoded (The number of encoded statements need to be specified)
+```bash
+    -c encoded=1 -c number_of_encoded_statements= <given-amount>
+```
+- Distribution
+--Uniform
+```bash
+    -c uniform=1 
+```
+--Random
+```bash
+    -c random=1 
+```
+--Linear
+```bash
+    -c linear=1 
+```
+
+To run the knowledge base:
+```bash
+        clingo --outf=2 --quiet=1 knowledge-base-instances.lp -c number_of_ranks=<given-amount> -c number_of_statements=<given-amount> -c uniform=1 knowledge_base_problem_class_2.lp "functions.lp" > <output-file>
+```
 ### References
 
 1. Giovanni Casini, Thomas Meyer, Ivan Varzinczak, "Taking
