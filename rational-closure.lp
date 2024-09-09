@@ -4,7 +4,7 @@ implication(X,Y) :- query(X,Y).
 
 
 %This needs to be restricted to the amount of levels in the rank formula
-{rank(implication(X,Y),0..10)} = 1 :- implication(X,Y).
+{rank(implication(X,Y),0..number_of_statements)} = 1 :- implication(X,Y).
 
 derive(X,X,N) :- rank(implication(X,Y),N).
 derive(X,P,N) :- rank(implication(Y,P),N1), derive(X,Y,N), N1 >= N.
