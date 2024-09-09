@@ -1,0 +1,38 @@
+{
+  "Solver": "clingo version 5.7.1",
+  "Input": [
+    "base-rank.lp","rational_queries/query.lp","rational-closure.lp"
+  ],
+  "Call": [
+    {
+      "Witnesses": [
+        {
+          "Value": [
+            "query(a,none)", "rank(implication(a,b),0)", "rank(m_implication(a,b),0)", "rank(implication(c,b),0)", "rank(m_implication(c,b),0)", "rank(implication(a,none),0)", "entailed(true)"
+          ],
+          "Costs": [
+            0
+          ]
+        }
+      ]
+    }
+  ],
+  "Result": "OPTIMUM FOUND",
+  "Models": {
+    "Number": 2,
+    "More": "no",
+    "Optimum": "yes",
+    "Optimal": 1,
+    "Costs": [
+      0
+    ]
+  },
+  "Calls": 1,
+  "Time": {
+    "Total": 0.007,
+    "Solve": 0.000,
+    "Model": 0.000,
+    "Unsat": 0.000,
+    "CPU": 0.004
+  }
+}
