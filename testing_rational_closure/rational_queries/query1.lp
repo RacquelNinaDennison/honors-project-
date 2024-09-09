@@ -1,4 +1,4 @@
-query(d,none).
+query(a,none).
 defeasible(a,b).
-defeasible(c,b).
+defeasible(b,c).
 #const number_of_statements=2.
