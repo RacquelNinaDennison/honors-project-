@@ -1,6 +1,6 @@
 import os
 import json
-from convert import ConvertToFormat
+from testing.convert import ConvertToFormat
 
 def write_to_file(output_directory, filename, ranked_implications):
     output_path = os.path.join(output_directory, filename)
