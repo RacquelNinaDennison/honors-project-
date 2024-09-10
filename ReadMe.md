@@ -124,7 +124,28 @@ above):
 
 Testing done on base rank computed the model against
 established ranks and compared the output. The output was
-compared against the implementation done by
+compared against the implementation done by Jaron Cohen
+[Jaron Cohen,2022](#2). The rational closure implementation
+computed the ranking for a given set of statements then
+tested the entailment of queries.
+
+##### Running tests
+
+The tests are stored in testing_base_rank and
+testing_rational_closure directories. To run the base rank
+tests:
+
+```bash
+   cd testing_base_rank
+   python main.py
+```
+
+To run the rational closure tests:
+
+```bash
+   cd testing_rational_closure
+   python runRationalClosureTests.py
+```
 
 #### References
 
@@ -132,3 +153,7 @@ compared against the implementation done by
    Defeasible Entailment Beyond Rational Closure" , Logics
    in Artificial Intelligence (pp.182-197), 2012.
    DOI:10.1007/978-3-030-19570-0_12.
+2. Jaron Cohen. 2022. Model-Based Defeasible Reasoning.
+   Technical Report. Uni- versity of Cape Town.
+   https://projects.cs.uct.ac.za/honsproj/cgi-bin/view/2022/
+   cohen_combrinck.zip/assets/res/MBDR_Final_Paper_CHNJAR003.pdf
