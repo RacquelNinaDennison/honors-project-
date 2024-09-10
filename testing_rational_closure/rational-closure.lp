@@ -16,17 +16,17 @@ eliminated(N):- derive(X,Y,N),derive(X,-Y,N).
 % this needs to be adjusted for more transitive queries 
 
 
-%* Needs to be further defined*%
+% %* Needs to be further defined*%
 consequence(X,Y,N) :- query(X,_), rank(implication(X,Y),N), rank(implication(X,Y),N1), N1>=N, not eliminated(N). 
 consequence(X,P,N) :- query(X,_), rank(implication(Y,P),N), rank(implication(X,Y),N1), N1>=N, not eliminated(N). 
-%* 
-Determine if it is entailed or not. This will need to be extended if 
-we want to determine if the antecedent is simply true
-*%
+% % %* 
+% Determine if it is entailed or not. This will need to be extended if 
+% we want to determine if the antecedent is simply true
+% *%
 
-% Accomidate for entailment checks that are just considering a singular atom
+% % Accomidate for entailment checks that are just considering a singular atom
 entailed(true) :- consequence(X1,_,N), query(X2,none), X1 = X2, initial_atom(X2). 
-entailed(true) :- consequence(X1,Y1,N), query(X2,Y2), X1 = X2, Y1=Y2, initial_atom(X2).
+entailed(true) :- consequence(X1,Y1,N), query(X1,Y1),initial_atom(X1).
 entailed(false) :- not entailed(true). 
 
 #show entailed/1.

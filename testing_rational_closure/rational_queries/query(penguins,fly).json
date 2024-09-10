@@ -1,14 +1,14 @@
 {
   "Solver": "clingo version 5.7.1",
   "Input": [
-    "base-rank.lp","rational_queries/query1.lp","rational-closure.lp"
+    "base-rank.lp","rational_queries/q1.lp"
   ],
   "Call": [
     {
       "Witnesses": [
         {
           "Value": [
-            "entailed(true)"
+            "rank(m_implication(birds,fly),0)", "rank(m_implication(penguins,-fly),0)"
           ],
           "Costs": [
             0
@@ -33,6 +33,6 @@
     "Solve": 0.000,
     "Model": 0.000,
     "Unsat": 0.000,
-    "CPU": 0.004
+    "CPU": 0.003
   }
 }
