@@ -1,3 +1,5 @@
+# Runs base rank againts predefined knowledge bases
+
 input_directory="testing-files/"
 output_directory="output-testing-files/"
 mkdir -p "$output_directory"

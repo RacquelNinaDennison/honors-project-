@@ -1,2 +1,2 @@
 defeasible(boat,floats;leaky,boat;leaky,-floats;flyingDutchman,boat;flyingDutchman,leaky).
-#const amount_of_ranks=7. 
+#const number_of_statements=7. 

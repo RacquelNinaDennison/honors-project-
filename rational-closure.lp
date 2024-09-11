@@ -24,7 +24,7 @@ Determine if it is entailed or not. This will need to be extended if
 we want to determine if the antecedent is simply true
 *%
 
-% Accomidate for entailment checks that are just considering a singular atom
+% Accommodate for entailment checks that are just considering a singular atom
 entailed(true) :- consequence(X1,_,N), query(X2,none), X1 = X2, initial_atom(X2). 
 entailed(true) :- consequence(X1,Y1,N), query(X2,Y2), X1 = X2, Y1=Y2, initial_atom(X2).
 entailed(false) :- not entailed(true). 

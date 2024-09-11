@@ -10,12 +10,12 @@ class KnowledgeGenerator():
         self.classical_included = classical_included
         self.encoded_included = encodeded
         self.distribution = distribution
-        self.knowledge_gen_programs = {"knowledge-gen-instances":"knowledge-base-instances.lp","knowledge-gen-class":"knowledge_base_problem_class_2.lp","functions":"functions.lp" }
+        self.knowledge_gen_programs = {"knowledge-gen-instances":"knowledge-base-problem-instances.lp","knowledge-gen-class":"knowledge-base-problem-class.lp","functions":"functions.lp" }
 
     def set_parameters(self):
         distribution_values = Distribution(self.amount_of_ranks, self.amount_of_statements)
         if(self.distribution == "linear"):
-            self.amount_of_statements = distribution_values.linear_growth(self.amount_of_ranks, self.amount_of_statements)
+            self.amount_of_statements = distribution_values.linear_growth()
         if(self.amount_of_statements < 2*self.amount_of_ranks -1):
             self.amount_of_statements = 2*self.amount_of_ranks-1
         uniform_flag = 1 if self.distribution == "uniform" else 0

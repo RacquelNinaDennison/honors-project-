@@ -1,4 +1,4 @@
-{defeasible(X,L;X,-L):clash_literal(L)}= 1 :- clashed_atom(X).
+{defeasible(X,L;X,-L):inconsistency_literal(L)}= 1 :- clashed_atom(X).
 :- clash(X,Y), defeasible(X,L1), defeasible(Y,L2), L1=L2. 
 defeasible(X,Y) :- clash(X,Y), not classical_included.
 classical(X,Y) :- clash(X,Y), classical_included. 
@@ -6,8 +6,13 @@ classical(X,Y) :- clash(X,Y), classical_included.
 {defeasible(X,Y)} :- atom(X), atom(Y), number_of_ranks -1  == 0. 
 m_implication(X,Y) :- defeasible(X,Y).
 m_implication(X,Y) :- classical(X,Y).
-:-#count{(X,Y):m_implication(X,Y)} < number_of_statements.
-:-#count{(X,Y):m_implication(X,Y)} > number_of_statements.
+{encoded(X,Y)}:-atom(X), atom(Y), not clash(X,Y), clashed_atom(X), not clashed_atom(Y), number_of_ranks -1 > 0, encoded.
+encoded(X,Y) :- encoded(Y,X). 
+:- #count{Y:encoded(X,Y)} > number_of_encoded_statements , encoded. 
+:- #count{Y:encoded(X,Y)} < 1, encoded. 
+defeasible(X,Y) :- encoded(X,Y).
+:-#count{(X,Y):m_implication(X,Y), not encoded(X,Y)} < number_of_statements.
+:-#count{(X,Y):m_implication(X,Y), not encoded(X,Y)} > number_of_statements.
 
 atom_index(a(X), X) :- atom(a(X)).
 % set uniform 
@@ -31,5 +36,5 @@ statement_count(N, Count) :- clashed_atom(X), atom_index(X,N), Count = #count{Y 
 :- statement_count(N, Count), Count < @random_index(number_of_statements, number_of_ranks,N), random, number_of_ranks - 1 != 0.
 :- statement_count(N, Count), Count > @random_index(number_of_statements, number_of_ranks,N), random, number_of_ranks - 1 != 0.
 
-#show defeasible/2.
+
 

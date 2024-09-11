@@ -7,6 +7,7 @@ random :-random=1.
 distribution_specified:- random. 
 linear_d :-linear_d=1. 
 distribution_specified:- linear_d. 
+encoded :- encoded=1.  
 
 
 {clash(a(1..number_of_ranks-1),a(0..number_of_ranks-2))}.
@@ -18,7 +19,7 @@ index(X,a(X)):- atom(a(X)).
 :- clash(X,Y),index(P,X),index(Z,Y), |P-Z| >1.
 :- clash(X,Y),index(P,X),index(Z,Y), P < Z.
 
-clash_literal(l0).
+inconsistency_literal(l0).
 clashed_atom(X;Y) :- clash(X,Y).
 
 % test 

@@ -53,4 +53,3 @@ def main(knowledge_base_rank, query, queryfilename, subdirectory,entailmentPath)
     entailmentFilePath = os.path.join(subdirectory, f"{entailmentPath}.lp")
     runRationalClosure.generate_base_rank(queryFilePath, outputFilePath)
     return runRationalClosure.generate_entailment(outputFilePath,entailmentFilePath,query)[0]
-

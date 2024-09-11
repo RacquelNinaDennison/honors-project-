@@ -1,7 +1,7 @@
 import math 
 
 class Distribution:
-    def __init__(self, amount_of_ranks, amount_of_statements=None):
+    def __init__(self, amount_of_ranks, amount_of_statements):
         self.amount_of_ranks = amount_of_ranks
         self.amount_of_statements = amount_of_statements
 

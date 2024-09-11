@@ -7,4 +7,4 @@ defeasible(a6,a1).
 defeasible(a0,-l0).
 defeasible(a1,l0).
 
-#const amount_of_ranks=20. 
+#const number_of_statements=20. 

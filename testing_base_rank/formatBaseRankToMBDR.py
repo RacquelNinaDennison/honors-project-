@@ -1,6 +1,6 @@
 import os
 import json
-from testing.convert import ConvertToFormat
+from convert import ConvertToFormat
 
 def write_to_file(output_directory, filename, ranked_implications):
     output_path = os.path.join(output_directory, filename)
@@ -17,19 +17,17 @@ def extract_models(input_directory, filename):
 
 
 def write_models(input_dir, output_dir):
+    '''Writes the models to the correct format'''
     files = os.listdir(input_dir)
     files.sort()
-    
     for filename in files:
         if filename.startswith('.') or filename.startswith('S_'):
             print(f"Skipping system or hidden file: {filename}")
             continue
-        
         output_file = filename[:filename.find(".")] + "_formatted.txt"  
         models = extract_models(input_dir, filename)
         formatter = ConvertToFormat(models)
         formatted = formatter.ranked_implications()
-        
         write_to_file(output_dir, output_file, formatted)
 
 def main():

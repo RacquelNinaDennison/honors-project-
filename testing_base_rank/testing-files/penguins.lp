@@ -1,3 +1,3 @@
 defeasible(b,f;p,-f).
 classical(p,b). 
-#const amount_of_ranks=7. 
+#const number_of_statements=7. 

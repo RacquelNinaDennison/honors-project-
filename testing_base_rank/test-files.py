@@ -1,6 +1,7 @@
 import os
 
 class Compare_Base_Rank:
+    '''Compares the contents of each file and ensures they match'''
     def __init__(self, base_rank_ASP, base_rank_JAVA):
         self.base_rank_ASP = base_rank_ASP
         self.base_rank_JAVA = base_rank_JAVA

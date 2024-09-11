@@ -21,6 +21,15 @@ generate data for RC.
    install Python from the official site
    [here](https://www.python.org/downloads/).
 
+#### Python Environment
+
+With the use of a python virtual environment, use the following command in the main directory. 
+```bash
+pip install -r requirements.txt
+```
+
+This will install the required packages.
+
 ## Running the programs
 
 ### Base Rank and Rational Closure
@@ -117,7 +126,7 @@ To run the knowledge base (Setting each parameter is done as
 above):
 
 ```bash
-        clingo --outf=2 --quiet=1 knowledge-base-instances.lp -c number_of_ranks=<given-amount> -c number_of_statements=<given-amount> -c uniform=1 knowledge_base_problem_class_2.lp "functions.lp" > <output-file>
+        clingo --outf=2 --quiet=1 knowledge-base-problem-instances.lp -c number_of_ranks=<given-amount> -c number_of_statements=<given-amount> -c uniform=1 knowledge-base-problem-class.lp "functions.lp" > <output-file>
 ```
 
 ### Testing
@@ -145,6 +154,13 @@ To run the rational closure tests:
 ```bash
    cd testing_rational_closure
    python runRationalClosureTests.py
+```
+
+To run the knowledge base tests:
+
+```bash
+   cd testing_knowledge_base
+   python runKnowledgeBasesTests.py
 ```
 
 #### References
