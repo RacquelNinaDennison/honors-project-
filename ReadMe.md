@@ -1,3 +1,6 @@
+![alt text](https://www.google.com/search?sca_esv=450070a99877800c&sxsrf=ADLYWIJAV9hAuZzPN3vTWU67UcTeH42FHg:1726076923912&q=penguins+don%27t+fly+and+birds+fly+defeasible+reasoning&udm=2&fbs=AEQNm0CvspUPonaF8UH5s_LBD3JPX4RSeMPt9v8oIaeGMh2T2PRrsfVPlQRxSTpQ4UUI6wdpgUZjCvQoq5Ehqqy4E5VpqvIcFJs0zO4mcPRxENNNxtdFArFakaI1ygyrJTSXndBYq4cXQfQCDX2YAQEeKQ413uxhGyAmaoCB5PRuiJrwBBZcYE9NuoxwUWH_XN_VXX2MKimdEsnYHrzD8iB3eagj01m3sA&sa=X&ved=2ahUKEwi1mJ7PubuIAxXHYPEDHWLnBHMQtKgLegQIERAB&biw=1440&bih=812&dpr=2#imgrc=j8vAVlAl_zPhiM&imgdii=-qvpb6IYYSXR-M)
+
+
 # Defeasible conditionals in Answer Set Programming
 
 This project forms part of a larger honors project which
