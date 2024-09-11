@@ -1,16 +1,16 @@
-![alt text](https://www.google.com/search?sca_esv=450070a99877800c&sxsrf=ADLYWIJAV9hAuZzPN3vTWU67UcTeH42FHg:1726076923912&q=penguins+don%27t+fly+and+birds+fly+defeasible+reasoning&udm=2&fbs=AEQNm0CvspUPonaF8UH5s_LBD3JPX4RSeMPt9v8oIaeGMh2T2PRrsfVPlQRxSTpQ4UUI6wdpgUZjCvQoq5Ehqqy4E5VpqvIcFJs0zO4mcPRxENNNxtdFArFakaI1ygyrJTSXndBYq4cXQfQCDX2YAQEeKQ413uxhGyAmaoCB5PRuiJrwBBZcYE9NuoxwUWH_XN_VXX2MKimdEsnYHrzD8iB3eagj01m3sA&sa=X&ved=2ahUKEwi1mJ7PubuIAxXHYPEDHWLnBHMQtKgLegQIERAB&biw=1440&bih=812&dpr=2#imgrc=j8vAVlAl_zPhiM&imgdii=-qvpb6IYYSXR-M)
 
 
 # Defeasible conditionals in Answer Set Programming
-
 This project forms part of a larger honors project which
 sorts to model defeasible conditionals in Answer Set
 Programming. In this project repo we developed an
 implemnetation of Base Rank and Rational Closure(RC)
-outlined in paper
+outlined in 
 [Giovanni Casini, Thomas Meyer, Ivan Varzinczak, 2012](#1).
-Furthermore, we developed a knowledge generator used
+Furthermore, we developed a knowledge generator used to 
 generate data for RC.
+
+![stack Overflow](https://www.cse.buffalo.edu/~rapaport/676/F01/opuscantfly.jpg)[William J. Rapaport,2001](#3)
 
 ### Installation
 
@@ -176,3 +176,4 @@ To run the knowledge base tests:
    Technical Report. Uni- versity of Cape Town.
    https://projects.cs.uct.ac.za/honsproj/cgi-bin/view/2022/
    cohen_combrinck.zip/assets/res/MBDR_Final_Paper_CHNJAR003.pdf
+3. William J. Rapaport, "Opus the Penguin Can't Fly". University at Buffalo, Department of Computer Science and Engineering, 2001, https://cse.buffalo.edu/~rapaport/676/F01/opuscantfly.jpg.
