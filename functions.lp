@@ -1,4 +1,5 @@
 #script (lua)
+
 function uniform(ranks, statements)
     local ranks_l = ranks.number
     local statements_l = statements.number
