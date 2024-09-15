@@ -77,6 +77,54 @@ class TestQueryOne(unittest.TestCase):
         print(f"Running test for query: 'flyingDutchman->floats'")
         print(f"Returned value: {returned_value}, Expected: {expected_result}")
         self.assertEqual(returned_value, expected_result)
+    def test_query_six(self):
+        """Testing if super penguins fly.
+        """
+        result = main(["defeasible(birds,fly)", "defeasible(birds,wings)","defeasible(penguins,-fly)", "defeasible(superpenguins,penguins)", "defeasible(penguins,birds)", "defeasible(superpenguins,fly)"],
+                      "query(superpenguins,fly)", "q6.lp", "rational_queries","ranked6")
+
+        returned_value = result
+        expected_result = "entailed(true)"
+        print(f"Running test for query: 'superpenguins->fly'")
+        print(f"Returned value: {returned_value}, Expected: {expected_result}")
+        self.assertEqual(returned_value, expected_result)
+    def test_query_seven(self):
+        """Testing if super penguins fly.
+        """
+        result = main(["defeasible(birds,fly)", "defeasible(birds,wings)","defeasible(penguins,-fly)", "defeasible(superpenguins,penguins)", "defeasible(penguins,birds)", "defeasible(superpenguins,fly)"],
+                      "query(superpenguins,wings)", "q7.lp", "rational_queries","ranked7")
+
+        returned_value = result
+        expected_result = "entailed(false)"
+        print(f"Running test for query: 'superpenguins->wings'")
+        print(f"Returned value: {returned_value}, Expected: {expected_result}")
+        self.assertEqual(returned_value, expected_result)
+
+    def test_query_eight(self):
+        """Testing if super penguins fly.
+        """
+        result = main(["defeasible(birds,fly)", "defeasible(birds,wings)","defeasible(penguins,-fly)", "defeasible(superpenguins,penguins)", "defeasible(penguins,birds)", "defeasible(superpenguins,fly)"],
+                      "query(penguins,wings)", "q8.lp", "rational_queries","ranked8")
+
+        returned_value = result
+        expected_result = "entailed(false)"
+        print(f"Running test for query: 'penguins->wings'")
+        print(f"Returned value: {returned_value}, Expected: {expected_result}")
+        self.assertEqual(returned_value, expected_result)
+    
+    def test_query_nine(self):
+        """Testing if super penguins fly.
+        """
+        result = main(["defeasible(birds,fly)", "defeasible(birds,wings)","defeasible(penguins,-fly)", "defeasible(superpenguins,penguins)", "defeasible(penguins,birds)", "defeasible(superpenguins,fly)"],
+                      "query(penguins,-fly)", "q9.lp", "rational_queries","ranked9")
+
+        returned_value = result
+        expected_result = "entailed(true)"
+        print(f"Running test for query: 'penguins->-fly'")
+        print(f"Returned value: {returned_value}, Expected: {expected_result}")
+        self.assertEqual(returned_value, expected_result)
+
+
 
 if __name__ =="__main__":
     unittest.main()

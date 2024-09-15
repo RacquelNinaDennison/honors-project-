@@ -46,7 +46,7 @@ statement_count(N, Count) :- clashed_atom(X), atom_index(X,N), Count = #count{Y 
 :- statement_count(N, Count), Count < @linear_decline(number_of_statements, number_of_ranks,N), linear_d, number_of_ranks -1 != 0.
 
 %* Random growth distribution*%
-% Initialize random distribution with desired parameters
+
 :- statement_count(N, Count), Count < @random_index(number_of_statements, number_of_ranks,N), random, number_of_ranks - 1 != 0.
 :- statement_count(N, Count), Count > @random_index(number_of_statements, number_of_ranks,N), random, number_of_ranks - 1 != 0.
 

@@ -1,17 +1,17 @@
 {
   "Solver": "clingo version 5.7.1",
   "Input": [
-    "base-rank.lp","rational_queries/q5.lp"
+    "base-rank.lp","rational_queries/q8.lp"
   ],
   "Call": [
     {
       "Witnesses": [
         {
           "Value": [
-            "rank(m_implication(boat,floats),0)", "rank(m_implication(leaky,boat),1)", "rank(m_implication(flyingDutchman,boat),1)", "rank(m_implication(flyingDutchman,leaky),1)", "rank(m_implication(normalBoat,boat),0)", "rank(m_implication(leaky,-floats),1)"
+            "rank(m_implication(birds,fly),0)", "rank(m_implication(birds,wings),0)", "rank(m_implication(superpenguins,penguins),2)", "rank(m_implication(penguins,birds),1)", "rank(m_implication(superpenguins,fly),2)", "rank(m_implication(penguins,-fly),1)"
           ],
           "Costs": [
-            4
+            6
           ]
         }
       ]
@@ -19,20 +19,20 @@
   ],
   "Result": "OPTIMUM FOUND",
   "Models": {
-    "Number": 6,
+    "Number": 1,
     "More": "no",
     "Optimum": "yes",
     "Optimal": 1,
     "Costs": [
-      4
+      6
     ]
   },
   "Calls": 1,
   "Time": {
-    "Total": 0.002,
+    "Total": 0.007,
     "Solve": 0.000,
     "Model": 0.000,
     "Unsat": 0.000,
-    "CPU": 0.002
+    "CPU": 0.004
   }
 }

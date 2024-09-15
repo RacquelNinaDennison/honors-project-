@@ -10,7 +10,6 @@ N1 = N2 :- rank(m_implication(X,Y1),N1), rank(m_implication(X,Y2),N2), not class
 :- derive(X,Y,N),derive(X,-Y,N).
 % derive the smallest model possible
 #minimize{N,X,Y:rank(m_implication(X,Y),N)}.
-
 #show rank/2.
 
 
