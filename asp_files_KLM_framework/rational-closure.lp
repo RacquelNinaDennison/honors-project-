@@ -10,11 +10,11 @@ implication(X,Y) :- query(X,Y).
 {rank(implication(X,Y),0..number_of_statements)} = 1 :- implication(X,Y).
 
 % deriving all possible consequences for our query 
-derive(X,X,N) :- rank(implication(X,Y),N).
-derive(X,P,N) :- rank(implication(Y,P),N1), derive(X,Y,N), N1 >= N.
+derived(X,X,N) :- rank(implication(X,Y),N).
+derived(X,P,N) :- rank(implication(Y,P),N1), derived(X,Y,N), N1 >= N.
 
 %from 0..N, this subset is elimanted and not considered
-eliminated(N):- derive(X,Y,N),derive(X,-Y,N).
+eliminated(N):- derived(X,Y,N),derived(X,-Y,N).
 #minimize{N,X,Y:rank(implication(X,Y),N)}.
 
 
@@ -35,3 +35,5 @@ entailed(false) :- not entailed(true).
 % Show if the query is entailed by the knowledge base 
 #show entailed/1.
 #show query/2.
+
+

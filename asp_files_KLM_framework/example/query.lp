@@ -1,0 +1,1 @@
+query(jerry,w). 
