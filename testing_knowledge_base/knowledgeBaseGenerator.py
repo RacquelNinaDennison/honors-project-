@@ -1,4 +1,4 @@
-from distributionClass import Distribution
+from asp_files_KLM_framework.distributionClass import Distribution
 import argparse
 import subprocess
 import json 

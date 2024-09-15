@@ -1,5 +1,5 @@
 import argparse
-from knowledgeGenerator import KnowledgeGenerator
+from asp_files_KLM_framework.knowledgeGenerator import KnowledgeGenerator
 
 def main():
     parser = argparse.ArgumentParser(description='Generate a knowledge base.')

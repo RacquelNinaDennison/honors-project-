@@ -1,8 +1,10 @@
-% ensures the antecedent is apart of the initial ranked statements 
+% ensures the antecedent is apart of the initial ranked statements- the antecedent needs to exist with what was initially had
 initial_atom(X) :- rank(m_implication(X,Y),N).
-rank(implication(X,Y),N) :- rank(m_implication(X,Y),N).
-implication(X,Y) :- query(X,Y).
 
+% convert all previous ranked statements to implications 
+rank(implication(X,Y),N) :- rank(m_implication(X,Y),N).
+% make our query an implication 
+implication(X,Y) :- query(X,Y).
 
 % Assigning random ranks to the query we are testing 
 {rank(implication(X,Y),0..number_of_statements)} = 1 :- implication(X,Y).
@@ -17,15 +19,13 @@ eliminated(N):- derive(X,Y,N),derive(X,-Y,N).
 
 
 % find all the consequences that follow from the rank being true
-% this needs to be adjusted for more transitive queries 
-
 consequence(X,Y,N) :- query(X,_), rank(implication(X,Y),N), rank(implication(X,Y),N1), N1>=N, not eliminated(N). 
 consequence(X,P,N) :- query(X,_), rank(implication(Y,P),N), rank(implication(X,Y),N1), N1>=N, not eliminated(N). 
 
 %* 
 Determine if it is entailed or not. 
 *%
-% Accommodate for entailment checks that are just considering a singular atom
+% Accommodate for entailment checks that are just considering a singular atom, we use none as the consequence
 entailed(true) :- consequence(X1,_,N), query(X2,none), X1 = X2, initial_atom(X2). 
 
 % Entailment checks of the form alpha |~ beta 
