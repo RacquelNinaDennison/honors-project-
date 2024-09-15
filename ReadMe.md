@@ -75,6 +75,7 @@ Running Base Rank on given set of facts in a file and output
 the generation to a file name:
 
 ```bash
+     cd asp_files_KLM_framework
      clingo <file-with-knowledge-base-facts> base-rank.lp > <output-file-name>
 ```
 
@@ -91,7 +92,13 @@ the following command:
 ```bash
      clingo <file-with-query> <file-with-knowledge-base-facts> base-rank.lp rational-closure.lp > <output-file-name>
 ```
-
+The file-with-knowledge-base-facts consits of the ranked statements from the knowledge base, for example:
+```bash
+rank(m_implication(b,f),0).
+rank(m_implication(p,b),1).
+rank(m_implication(p,-f),1).
+```
+The example directory in 'asp_files_KLM_framework' 
 ### Knowledge base generator
 
 The knowledge base generator generates knowledge bases based
@@ -150,8 +157,10 @@ To run the knowledge base (Setting each parameter is done as
 above):
 
 ```bash
+cd asp_files_KLM_framework
         clingo --outf=2 --quiet=1 knowledge-base-problem-instances.lp -c number_of_ranks=<given-amount> -c number_of_statements=<given-amount> -c uniform=1 knowledge-base-problem-class.lp "functions.lp" > <output-file>
 ```
+
 
 ### Testing
 
