@@ -92,13 +92,26 @@ the following command:
 ```bash
      clingo <file-with-query> <file-with-knowledge-base-facts> base-rank.lp rational-closure.lp > <output-file-name>
 ```
-The file-with-knowledge-base-facts consits of the ranked statements from the knowledge base, for example:
+
+The file-with-knowledge-base-facts consits of the ranked
+statements from the knowledge base, for example:
+
 ```bash
 rank(m_implication(b,f),0).
 rank(m_implication(p,b),1).
 rank(m_implication(p,-f),1).
 ```
-The example directory in 'asp_files_KLM_framework' 
+
+The example directory in 'asp_files_KLM_framework' has
+defeasible statements and a query that can be runned with
+the Base Rank and RC implementation. The following command
+runs the files:
+
+```bash
+cd asp_files_KLM_framework
+clingo --quiet=1 example/defeasible_statements.lp base-rank.lp example/query.lp rational-closure.lp
+```
+
 ### Knowledge base generator
 
 The knowledge base generator generates knowledge bases based
@@ -160,7 +173,6 @@ above):
 cd asp_files_KLM_framework
         clingo --outf=2 --quiet=1 knowledge-base-problem-instances.lp -c number_of_ranks=<given-amount> -c number_of_statements=<given-amount> -c uniform=1 knowledge-base-problem-class.lp "functions.lp" > <output-file>
 ```
-
 
 ### Testing
 
