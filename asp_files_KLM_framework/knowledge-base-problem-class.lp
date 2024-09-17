@@ -50,5 +50,4 @@ statement_count(N, Count) :- clashed_atom(X), atom_index(X,N), Count = #count{Y 
 :- statement_count(N, Count), Count < @random_index(number_of_statements, number_of_ranks,N), random, number_of_ranks - 1 != 0.
 :- statement_count(N, Count), Count > @random_index(number_of_statements, number_of_ranks,N), random, number_of_ranks - 1 != 0.
 
-
-
+% #show defeasible/2.

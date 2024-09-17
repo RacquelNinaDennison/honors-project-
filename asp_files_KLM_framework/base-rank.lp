@@ -26,3 +26,5 @@ N1 = N2 :- rank(m_implication(X,Y1),N1), rank(m_implication(X,Y2),N2), not class
 #minimize{N,X,Y:rank(m_implication(X,Y),N)}.
 
 % #show derive/3.
+
+#show rank/2.

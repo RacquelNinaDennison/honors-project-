@@ -1,0 +1,14 @@
+# Base Rank 
+ clingo --quiet=1 example/defeasible_statements.lp base-rank.lp
+
+# Rational Closure Query 
+ clingo --quiet=1 example/defeasible_statements.lp base-rank.lp example/query.lp rational-closure.lp
+
+# Knowledge base
+clingo knowledge-base-problem-instance.lp -c number_of_statements=10 -c number_of_ranks=3 -c uniform=1 knowledge-base-problem-class.lp functions.lp
+
+# Ranked Statements 
+clingo knowledge-base-problem-instance.lp -c number_of_statements=10 -c number_of_ranks=3 -c uniform=1 knowledge-base-problem-class.lp functions.lp base-rank.lp
+
+# Query knowledge base 
+clingo knowledge-base-problem-instance.lp -c number_of_statements=10 -c number_of_ranks=3 -c uniform=1 knowledge-base-problem-class.lp functions.lp base-rank.lp example/knowledge-base-query.lp rational-closure.lp
